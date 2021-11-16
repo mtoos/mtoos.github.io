@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSON Formatter / Minifier - Free Online Tools For Developers</title>
-    <meta name="keywords" content="Compress JSON, JSON Minifier, JSON Minify, JSON Compressor, Online JSON Minifier" />
-    <meta name="description" content="Best Online JSON Minifier, JSON Minify, JSON Compressor" />
+    <title>SQL Formatter / Minifier - Free Online Tools For Developers</title>
+    <meta name="keywords" content="sql minifier,minify sql,minify sql query,minify sql query online,sql minifier online,sql minify online" />
+    <meta name="description" content="SQL Formatter / Minifier helps to minify SQL data and it helps developer compress and reduces the size of the SQL." />
     <link href="/static/favicon.png" type="image/x-icon" rel="shortcut icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link type="text/css" rel="stylesheet" href="/static/page.css">
@@ -67,19 +67,19 @@
         <div class="content">
             <div class="mod-breadcrumb">
                 <a href="/">Home</a>
-                <span>&gt;</span> <strong>JSON Formatter / Minifier</strong>
+                <span>&gt;</span> <strong>SQL Formatter / Minifier</strong>
             </div>
             
                 <div class="mod-panel">
     <div class="hd">
-        <h1>JSON Formatter / Minifier</h1>
+        <h1>SQL Formatter / Minifier</h1>
     </div>
     <div class="bd">
         <div class="row">
             <div class="col-md-12">
                 <form>
                     <div class="form-group">
-                        <div id="input" style="height:400px;">{"name":"Free Online Tools For Developers"}</div>
+                        <div id="input" style="height:400px;">SELECT d.deptno, d.dname, d.loc, COUNT(e.empno) mycount, NVL(AVG(e.sal), 0) myavg FROM dept d,emp e WHERE d.deptno=e.deptno(+) GROUP BY d.deptno,d.dname,d.loc HAVING AVG(sal)>2000;</div>
                     </div>
                     <div class="form-group">
                         <div class="form-inline">
@@ -93,74 +93,83 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12" id="message" style="">
-                <p class="bg-success">Message</p>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-10">
                 <div class="tips">
-                    <h4>JSON Formatter / Minifier Online</h4>
-                    <p>Welcome to the online JSON Minifier, JSON minify, JSON Compressor. JSON is a data format that is gaining popularity and used extensively in many AJAX-powered Websites. JSON Minifier will help to compress JSON Data.</p>
-                    <h4>How to use the JSON Formatter Tool</h4>
+                    <h4>About SQL Formatter / Minifier</h4>
                     <ul>
-                        <li>Paste your JSON into the input box.</li>
-                        <li>Click "Format" or "Compress" button.</li>
-                        <li>If there are any errors in the JSON and the tool isn't able to do the formatting, the error message will appear in the message area letting you know where the error was found in the JSON.</li>
-                        <li><b>Your JSON data is secure.</b> The JSON formatter does not send your JSON data to our servers for formatting, the process is done completely in your web browser.</li>
+                        <li>SQL Formatter / Minifier helps to minify SQL data and it helps developer compress and reduces the size of the SQL.</li>
                     </ul>
-                    <h4>
-                        What is JSON?
-                    </h4>
-                    <p>JSON stands for "JavaScript Object Notation" and is pronounced "Jason" (like in the Friday the 13th movies). It's meant to be a human-readable and compact solution to represent a complex data structure and facilitate data-interchange between systems.</p>
-
+                    <h4>How do I format SQL data?</h4>
+                    <ul>
+		                        <li>Paste your SQL into the input box.</li>
+		                        <li>Click "Format" or "Compress" button,you will get formatted or compressed SQL in the same input box.</li>
+		                        <li>Click "Copy to clipboard" button copy the formatted SQL to your clipboard.</li>
+		                        <li><b>Your SQL data is secure.</b> The SQL formatter does not send your SQL data to our servers for formatting, the process is done completely in your web browser.</li>
+		                    </ul>
+		          <h4>What is SQL?</h4>
+                  <ul>
+                  <li>SQL is a standard language for accessing and manipulating databases.</li>
+                      <li>SQL stands for Structured Query Language</li>
+                      <li>SQL lets you access and manipulate databases</li>
+                      <li>SQL became a standard of the American National Standards Institute (ANSI) 
+                      in 1986, and of the International Organization for Standardization (ISO) in 
+                      1987</li>
+                    </ul>
+                    <h4>Example of SQL Formatter / Minifier</h4>
+                    <p>Before:</p>
+                    <pre>SELECT d.deptno, d.dname, d.loc, COUNT(e.empno) mycount, NVL(AVG(e.sal), 0) myavg FROM dept d,emp e WHERE d.deptno=e.deptno(+) GROUP BY d.deptno,d.dname,d.loc HAVING AVG(sal)>2000;</pre>
+                    <p>After:</p>
+<pre>
+SELECT d.deptno,
+         d.dname,
+         d.loc,
+         COUNT(e.empno) mycount,
+         NVL(AVG(e.sal),
+         0) myavg
+FROM dept d,emp e
+WHERE d.deptno=e.deptno(+)
+GROUP BY  d.deptno,d.dname,d.loc
+HAVING AVG(sal)>2000;
+</pre>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/static/ace/ace.js"></script></script><script type="text/javascript" src="/static/common.js"></script><script type="text/javascript" src="/static/json2.js"></script><script type="text/javascript" src="/static/jsonlint.js"></script><script type="text/javascript">
-    (function () {
+<script type="text/javascript" src="/static/ace/ace.js"></script>
+<script type="text/javascript" src="/static/vkbeautify.js" ></script>
+<script type="text/javascript">
+    (function(){
         var $mod_panel = $('.mod-panel');
-        var $message = $mod_panel.find('#message');
         var $input = $mod_panel.find('#input');
 
         var editor = ace.edit("input");
         editor.setShowPrintMargin(false);
         editor.setTheme("ace/theme/merbivore_soft");
-        editor.getSession().setMode("ace/mode/json");
+        editor.getSession().setMode("ace/mode/sql");
         editor.on('focus', function () {
             if (!$input.data('firstfocus')) {
                 editor.setValue('');
                 $input.data('firstfocus', true)
             }
         });
-        $mod_panel.find('.btn').click(function (e) {
+        $mod_panel.find('.btn').click(function(e){
             var input = editor.getValue(),
-                glue = $(this).data('type');
-
-            if(glue == 'copy'){
+                type = $(this).data('type'),
+                result = '';
+            if(type == 'copy'){
                 JScopyText(editor.getValue());
-            }else if(glue == 'clear'){
-                editor.setValue('');
             }else{
-                try {
-                    $message.empty();
-                    result = jsonlint.parse(input),
-                    glue = glue == 'beauty' ? '  ' : ''
-                    if (result) {
-                        result = JSON.stringify(JSON.parse(input), null, glue);
-                        $message.html('<p class="bg-success">Success</p>').show(100);
-                        editor.setValue(result);
-                        editor.clearSelection();
-                    }
-                } catch (e) {
-                    $message.html('<p class="bg-fail">' + e + '</p>').show(100);
+                if(type=='beauty'){
+                    result = vkbeautify.sql(input);
+                }else if(type=='clear'){
+                    result = '';
+                }else{
+                    result = vkbeautify.sqlmin(input);
                 }
+                editor.setValue(result);
                 $input.data('firstfocus', true);
             }
-
-            return false;
         });
     })();
 </script>
